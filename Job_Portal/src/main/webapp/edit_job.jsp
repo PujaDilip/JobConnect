@@ -1,0 +1,121 @@
+<%@page import="com.DB.DBConnect"%>
+<%@page import="com.dao.JobDAO"%>
+<%@page import="com.entity.*"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit job</title>
+<%@include file="all_component/all_css.jsp"%>
+</head>
+<body style="background: #ffffff;">
+	<%-- <c:if test="${userobj.role ne 'admin' }">
+
+		<c:redirect url="login.jsp"></c:redirect>
+	</c:if> --%>
+	<%@include file="all_component/navbar.jsp"%>
+	<div class="container p-2">
+		<div class="col-md-10 offset-md-1">
+			<div class="card shadow">
+				<div class="card-body">
+
+					<%
+					int id = Integer.parseInt(request.getParameter("id"));
+					JobDAO dao = new JobDAO(DBConnect.getConn());
+					Jobs j = dao.getJobById(id);
+					%>
+
+					<div class="text-center">
+						<i class="fa-regular fa-user fa-xl"></i>
+						<h5>ADD JOB</h5>
+					</div>
+
+					<form action="update_job" method="post">
+
+						<div class="row my-2">
+							<input type="hidden" value="<%=j.getId()%>" name="id">
+							<input type="hidden" value="<c:out value="${userobj.id}" />" name="recruiter_id">
+							<div class="form-group col-6">
+								<label>Title</label> <input type="text" name="title"
+									placeholder="Enter title" required="required"
+									class="form-control" value="<%=j.getTitle()%>">
+							</div>
+							<div class="form-group col-6">
+								<label>Company</label> <input type="text" name="company"
+									placeholder="Enter company" required="required"
+									class="form-control" value="<%=j.getCompany()%>">
+							</div>
+						</div>
+						<div class="row my-2">
+							<div class="form-group col-4">
+								<label>Location</label> <select name="location"
+									class="form-select" id="inlineFormCustomSelectPref">
+									<option value="<%=j.getLocation()%>"><%=j.getLocation()%></option>
+									<option value="Odisha">Odisha</option>
+									<option value="Jharkhand">Jharkhand</option>
+									<option value="Gujarath">Gujarath</option>
+									<option value="Bhubaneshwar">Bhubaneshwar</option>
+									<option value="Delhi">Delhi</option>
+									<option value="Bangalore">Bangalore</option>
+									<option value="Chennai">Chennai</option>
+									<option value="Hyderabad">Hyderabad</option>
+								</select>
+							</div>
+							<div class="form-group col-4">
+								<label>Category</label> <select name="category"
+									class="form-select" id="inlineFormCustomselectPref">
+									<option value="<%=j.getCategory()%>"><%=j.getCategory()%></option>
+									<option value="IT">IT</option>
+									<option value="Developer">Developer</option>
+									<option value="Banking">Banking</option>
+									<option value="Engineer">Engineer</option>
+									<option value="Teacher">Teacher</option>
+									<option value="Business">Business</option>
+
+								</select>
+							</div>
+							<div class="form-group col-4">
+								<label>Experience</label> <select name="experience"
+									class="form-select" id="inlineFormCustomselectPref">
+									<option value="<%=j.getExperience()%>"><%=j.getExperience()%></option>
+									<option value="Fresher">Fresher</option>
+									<option value="Experienced">Experienced</option>
+								</select>
+							</div>
+
+						</div>
+						<div class="row my-2">
+							<div class="col-6 form-group">
+								<label>Package</label> <input type="text" name="package"
+									placeholder="0.0 LPA" required="required" class="form-control"
+									value="<%=j.getPkg()%>">
+							</div>
+							<div class="col-6 form-group">
+								<label>Status</label> <select name="status" class="form-select">
+									<option class="Active" value="<%=j.getStatus()%>"><%=j.getStatus()%></option>
+									<option class="Active" value="Active">Active</option>
+									<option class="Inactive" value="Inactive">Inactive</option>
+
+								</select>
+							</div>
+						</div>
+						<div class="form-group my-2">
+							<label>Description</label>
+							<textarea required rows="4" cols="" name="desc"
+								placeholder="Enter description" class="form-control"><%=j.getDescription()%></textarea>
+						</div>
+						<div class="text-end">
+							<button class="btn btn-primary">Update Job</button>
+							<a href="view_jobs.jsp?id=<c:out value="${userobj.id}" />" class="btn btn-secondary">Back</a>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

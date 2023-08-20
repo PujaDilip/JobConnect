@@ -1,0 +1,67 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>UpdateRecruiterServlet</servlet-name>
+  	<display-name>UpdateRecruiterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.UpdateRecruiterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateRecuiterStatusServlet</servlet-name>
+  	<display-name>UpdateRecuiterStatusServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.UpdateRecuiterStatusServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterUserServlet</servlet-name>
+  	<display-name>RegisterUserServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.RegisterUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterRecruiterServlet</servlet-name>
+  	<display-name>RegisterRecruiterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.RegisterRecruiterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RecruiterLoginServlet</servlet-name>
+  	<display-name>RecruiterLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.RecruiterLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateRecruiterProfileServlet</servlet-name>
+  	<display-name>UpdateRecruiterProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.UpdateRecruiterProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateRecruiterServlet</servlet-name>
+  	<url-pattern>/UpdateRecruiterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateRecuiterStatusServlet</servlet-name>
+  	<url-pattern>/UpdateRecuiterStatusServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterUserServlet</servlet-name>
+  	<url-pattern>/RegisterUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterRecruiterServlet</servlet-name>
+  	<url-pattern>/RegisterRecruiterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RecruiterLoginServlet</servlet-name>
+  	<url-pattern>/RecruiterLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateRecruiterProfileServlet</servlet-name>
+  	<url-pattern>/UpdateRecruiterProfileServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
